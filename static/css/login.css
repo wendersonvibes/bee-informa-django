@@ -1,0 +1,60 @@
+@import url(./static.css);
+
+body {
+    font-family: "fira-regular"; 
+}
+
+
+/* para o html login.html */
+
+#login{
+    background-color: #F5C73E;
+    color: white;
+    width: 40em;
+    font-family: 'fira-extraBold';
+}
+
+#form, #login{
+    height: 100vh;
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.botaoEnviar{
+   border-radius: 6px;
+   background: #831E62;
+   color: white;
+   border: none;
+   margin-top: 1em;
+}
+
+.seta-login{
+    position: relative;
+    left: -50px;
+    width: 100px;
+}
+
+/* formulario do login */
+
+.form-control{
+    width: 700px;
+}
+
+.form-label{
+    padding-top: 1em;
+}
+
+#form{
+    margin-left: 2em;
+}
+
+
+
+
+

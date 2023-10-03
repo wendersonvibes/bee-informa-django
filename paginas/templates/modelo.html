@@ -1,1 +1,30 @@
-<!-- MODELO/MOLDE DAS PAGINAS -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block titulo %}
+        <title>Modelo</title>
+        {% endblock %}
+
+        {% block css %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block cabecalho %}
+        {% endblock %}
+
+        {% block conteudo %}
+        {% endblock %}
+
+        {% block rodape %}
+        {% endblock %}
+        
+    </body>
+</html>
+
+

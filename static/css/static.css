@@ -1,0 +1,97 @@
+:root {
+    --branco-neutro: #fff;
+    --roxo-primario: #831E62;
+    --amarelo-primario: #F5C73E;
+    --black: #000;
+}
+
+/* FONTES */
+
+@font-face {
+    font-family: "fira-regular";
+    src: url(../fonts/Fira_Sans/FiraSans-Regular.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "fira-bold";
+    src: url(../fonts/Fira_Sans/FiraSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: "fira-extraBold";
+    src: url(../fonts/Fira_Sans/FiraSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "fira-light";
+    src: url(../fonts/Fira_Sans/FiraSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "fira-medium";
+    src: url(../fonts/Fira_Sans/FiraSans-Medium.ttf);
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    border-radius: 50px;
+    background-color: var(--roxo-primario);
+}
+
+/* ESTILOS ESPECÍFICOS */
+.reverse {
+    flex-direction: row-reverse; 
+}
+
+.no-display-flex {
+    display: block;
+}
+
+.botao {
+    background-color: var(--roxo-primario);
+    border: none;
+    padding: 10px 50px;
+    color: var(--branco-neutro);
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    width: 100%;
+    height: 200px;
+    background-color: var(--amarelo-primario);
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+    font-family: 'fira-bold';
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: var(--branco-neutro);
+    margin-top: 30px;
+}
+
+.nav-bar a:hover {
+    color: var(--roxo-primario);
+    text-shadow: none;
+}
+
+#header-main {
+    margin-top: 50px;
+}
+
+#header-main h1 {
+    font-family: 'fira-extraBold';
+    color: var(--branco-neutro);
+    text-shadow: 3px 3px 4px var(--black);
+}

@@ -1,0 +1,84 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Início</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block cabecalho %}
+    <header class="cabecalho">
+        <div class="container">
+            <nav class="nav-bar">
+                <a href="#">INÍCIO</a>
+                <a href="#">CONTATOS</a>
+                <a href="#">MEMBROS</a>
+            </nav>
+
+            <div id="header-main">
+                <h1>BEE INFORMA</h1>
+                <p id="header-main-paragraph">Fique por dentro das ações estudantis como campanhas, eventos e auxílios do campus IFRN - São Paulo do Potengi</p>
+                <a href="tela-publico.html" class="btn btn-danger botao">Entrar</a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block conteudo %}
+  <!-- SECTION 1 -->
+  <section class="section no-display-flex container">
+
+    <div class="section-content">
+        <h1 class="section-title">O QUE É A COAES?</h1>
+        <p class="section-paragraph">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+
+    <div class="section-cards">
+        <img src="{% static 'assets/colmeia.svg' %}" alt="">
+        <img src="{% static 'assets/colmeia.svg' %}" alt="">
+        <img src="{% static 'assets/colmeia.svg' %}" alt="">
+    </div>
+
+</section>
+
+<!-- SECTION 2 -->
+<section class="section container">
+
+    <div class="section-content">
+
+        <h1 class="section-title">ASSISTÊNCIA SOCIAL</h1>
+        <p class="section-paragraph">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <a href="#" class="btn btn-danger botao">Saiba mais</a>
+        
+    </div>
+
+    <div class="section-img-container">
+        <img src="{% static 'assets/colmeia.svg' %}" alt="" class="section-img">
+    </div>
+
+</section>
+
+<!-- SECTION 3 -->
+<section class="section reverse container">
+    
+    <div class="section-content">
+        <h1 class="section-title">NUTRIÇÃO</h1>
+        <p class="section-paragraph">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+        <a href="#" class="btn btn-danger botao">Saiba mais</a>
+    </div>
+    <div class="section-img-container">
+        <img src="{% static 'assets/colmeia.svg' %}" alt="" class="section-img">
+    </div>
+
+</section>
+
+<footer id="rodape">
+
+</footer>
+
+{% endblock %}
