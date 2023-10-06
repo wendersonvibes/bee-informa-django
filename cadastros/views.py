@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import forms
+from . import models
 
 def post_create(request):
     if request.method == "POST":
@@ -10,7 +11,11 @@ def post_create(request):
     else:
         form = forms.PostForm()
     
-    return render(request, "post_form.html")
+    return render(request, "post_form.html", {'form': form})
 
 def posts_list(request):
-    return render(request, "listas/posts_assistencia_social.html")
+    postagens = models.Postagens.objects.all()
+    
+    print(postagens)
+
+    return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})

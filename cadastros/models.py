@@ -6,9 +6,9 @@ from django.db import models
 
 # TABLE CATEGORIA: Será um campo de seleção
 class Categorias(models.Model):
-    cat_categoria = models.CharField(max_length=45)
+    cat_categoria = models.CharField(max_length=45, verbose_name='Categoria')
     def __str__(self):
-        return "{}".format(self.categoria)
+        return "{}".format(self.cat_categoria)
     
 
 # TABLE POSTAGENS: poderá ser um post de evento ou auxilio
@@ -21,7 +21,7 @@ class Postagens(models.Model):
     pos_cat_codigo = models.ForeignKey(Categorias, on_delete= models.PROTECT)
 
     def __str__(self):
-        return "{} - ({}) - ({})".format(self.titulo, self.categoria, self.data_registro)
+        return "{} - ({}) - ({})".format(self.pos_titulo, self.pos_cat_codigo, self.pos_data_registro)
 
 class Setores(models.Model):
     set_nome = models.CharField(max_length=40)
@@ -29,7 +29,7 @@ class Setores(models.Model):
     set_numero_sala = models.IntegerField()
 
     def __str__(self):
-        return "{} - ({})".format(self.nome, self.representante)
+        return "{} - ({})".format(self.set_nome, self.set_representante)
 
 class Cardapios(models.Model):
     car_dia_semana = models.CharField(max_length=40, verbose_name='Dia da Semana')
@@ -37,5 +37,5 @@ class Cardapios(models.Model):
     car_data_registro = models.DateField(auto_now=True, verbose_name= 'Data de Registro')
 
     def __str__(self):
-        return "{} - ({})".format(self.dia_semana, self.descricao)
+        return "{} - ({})".format(self.car_dia_semana, self.car_descricao)
     

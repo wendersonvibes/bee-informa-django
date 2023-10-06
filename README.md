@@ -1,1 +1,1 @@
-# bee-informa-django
+# Bee informa

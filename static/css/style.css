@@ -1,0 +1,284 @@
+@import url("./static.css");
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+/* ###### HOME ###### */
+
+.cabecalho {
+    width: 100%;
+    height: 200px;
+    background-color: var(--amarelo-primario);
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: var(--branco-neutro);
+    margin-top: 20px;
+}
+
+.nav-bar a:hover {
+    color: var(--roxo-primario);
+    text-shadow: none;
+}
+
+#header-main {
+    margin-top: 50px;
+}
+
+#header-main h1 {
+    font-weight: 800;
+    color: var(--branco-neutro);
+    /* text-shadow: 3px 3px 4px var(--black); */
+}
+
+#header-main-paragraph {
+    width: 350px;
+    text-align: justify;
+    color: var(--branco-neutro);
+    opacity: 0.90;
+}
+
+/* ########## SECTIONS ########## */
+
+.section {  
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    width: 85em;
+}
+
+.section-img {
+    width: 180px;
+}
+
+.section-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.section-cards img{
+    width: 120px;
+}
+
+.section-title {
+    font-weight: 700;
+    color: var(--roxo-primario);
+    font-size: 30px;
+}
+
+.section-paragraph {
+    text-align: justify;
+}
+
+.reverse {
+    flex-direction: row-reverse; 
+}
+
+/* ########## RODAPÉ ########## */
+#rodape {
+    margin-top: 200px;
+}
+
+/* TELAS MENORES QUE 900px */
+@media screen and (max-width: 990px) {
+
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        font-family: 'fira-bold';
+    }
+
+    .section {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 1000px;
+    }
+    
+    .section-img {
+        width: 150px;
+    }
+
+    .section-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-cards {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-cards img{
+        width: 100px;
+    }
+    
+    .section-title {
+        font-weight: 700;
+        color: var(--roxo-primario);
+        font-size: 25px;
+    }
+}
+
+/* ###### FIM DA HOME ###### */
+
+
+
+/* ###### FORMULÁRIO DE LOGIN ###### */
+
+#login{
+    background-color: #F5C73E;
+    color: white;
+    width: 40em;
+    font-weight: 800;
+}
+
+#form, #login{
+    height: 100vh;
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.botaoEnviar{
+   border-radius: 6px;
+   background: #831E62;
+   color: white;
+   border: none;
+   margin-top: 1em;
+}
+
+.seta-login{
+    position: relative;
+    left: -50px;
+    width: 100px;
+}
+
+/* formulario do login */
+
+.form-control{
+    width: 700px;
+}
+
+.form-label{
+    padding-top: 1em;
+}
+
+/* ###### FIM FORMULÁRIO DE LOGIN ###### */
+
+
+
+/* ###### TELA ADMIN ###### */
+.section-content {
+    margin-top: 25px;
+    /* box-shadow: 3px 3px 3px rgba(100, 100, 100, 0.6); */
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.content-title {
+    font-weight: 700;
+    color: var(--roxo-primario);
+}
+
+.lista {
+    list-style: none;
+}
+
+.lista li a {
+    text-decoration: none;
+}
+/* ###### FIM TELA ADMIN ###### */
+
+/* ###### TELA PÚBLICO ###### */
+.section-informacoes {
+    margin-top: 100px;
+    width: 500px;
+    box-shadow: 4px 4px 8px rgba(100, 100, 100, 0.6);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.section-informacoes h5 {
+    color: var(--amarelo-primario);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.section-informacoes h1 {
+    color: var(--roxo-primario);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.section-informacoes button {
+    position: relative;
+    margin-left: 270px;
+    margin-top: 20px;
+}
+
+.lista-de-informacoes {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.lista-de-informacoes a {
+    text-decoration: none;
+}
+
+
+.grid-template {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.content-title {
+    font-weight: bold;
+    color: var(--roxo-primario);
+}
+
+.content-hero p {
+    font-weight: 300;
+}
+
+.content-date {
+    font-weight: 400;
+}
+
+.content-image {
+    width: 400px;
+    height: 400px;
+    background-color: antiquewhite;
+}
+
+.content-group {
+    margin-top: 25px;
+}
+
+.content-group .group-title {
+    font-weight: bold;
+    color: var(--roxo-primario);
+}
+/* ###### FIM TELA PÚBLICO ###### */

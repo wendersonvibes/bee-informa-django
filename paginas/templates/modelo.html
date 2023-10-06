@@ -10,9 +10,9 @@
         <title>Modelo</title>
         {% endblock %}
 
-        {% block css %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
     </head>
     <body>
         {% block cabecalho %}
@@ -36,6 +36,8 @@
         {% endblock %}
 
         {% block rodape %}
+            <footer id="rodape">
+            </footer>
         {% endblock %}
         
     </body>

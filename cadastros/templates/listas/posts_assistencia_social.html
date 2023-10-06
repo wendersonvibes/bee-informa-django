@@ -5,30 +5,27 @@
 <title>Modelo</title>
 {% endblock %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/tela-publico.css' %}">
-{% endblock %}
-
 {% block conteudo %}
+    {% for post in posts %}
+    
     <section class="container">
         <div class="section-content">
             <!-- LINHA -->
             <div class="row">
                 <!-- COLUNA -->
                 <div class="col-md-12">
-                    <h1 class="content-title">PROGRAMA DE AUXÍLIO 01</h1>
+                    <h1 class="content-title">{{ post.pos_titulo }}</h1>
                 </div>
                 <!-- FIM DA COLUNA -->
 
                 <!-- COLUNA -->
                 <div class="col-md-8">
                     <div class="content-hero">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <p>{{ post.pos_conteudo }}</p>
                     </div>
 
                     <div class="content-date">
-                        <h5>Data de registro: </h5>
+                        <h5>Data de registro: {{ post.pos_data_registro }} </h5>
                         <h5>Autor: </h5>
                         <h5>Inscreva-se: </h5>
                     </div>
@@ -60,6 +57,7 @@
             <!-- FIM DA LINHA -->
         </div>  
     </section>
+    {% endfor %}
 {% endblock %}
 
 {% block rodape %}
