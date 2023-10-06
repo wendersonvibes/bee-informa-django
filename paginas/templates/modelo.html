@@ -16,6 +16,20 @@
     </head>
     <body>
         {% block cabecalho %}
+        <header class="cabecalho">
+            <div class="container">
+                <nav class="nav-bar">
+                    <a href="{% url 'inicio' %}">Início</a>
+                    <a href="{% url 'assistencia-social' %}">Assistência social</a>
+                    <a href="#">Nutrição</a>
+                    <a href="#">Eventos/campanhas</a>
+                </nav>
+    
+                <div id="header-main">
+                    <h1>BEE INFORMA</h1>
+                </div>
+            </div>
+        </header>
         {% endblock %}
 
         {% block conteudo %}

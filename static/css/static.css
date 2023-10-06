@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: "fira-regular";
-    src: url(../fonts/Fira_Sans/FiraSans-Regular.ttf);
+    src: url("../fonts/Fira_Sans/FiraSans-Regular.ttf") format('ttf');
     font-weight: 100;
 }
 

@@ -48,8 +48,7 @@ body {
 
 /* ########## SECTIONS ########## */
 
-.section {
-    margin-left: 5em;
+.section {  
     margin-top: 100px;
     display: flex;
     flex-direction: row;
