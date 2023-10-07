@@ -33,7 +33,7 @@
 .botao {
     background-color: var(--roxo-primario);
     border: none;
-    padding: 10px 50px;
+    padding: 6px 25px;
     color: var(--branco-neutro);
 }
 

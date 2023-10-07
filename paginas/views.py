@@ -6,5 +6,5 @@ def home_view(request):
 def publico_view(request):
     return render(request, "tela_publico.html")
 
-def assistencia_social_view(request):
-    return render(request, "listas/posts_assistencia_social.html")
+# def assistencia_social_view(request):
+#     return render(request, "listas/posts_assistencia_social.html")
