@@ -18,16 +18,22 @@
         {% block cabecalho %}
         <header class="cabecalho">
             <div class="container">
-                <nav class="nav-bar">
-                    <a href="{% url 'inicio' %}">Início</a>
-                    <a href="{% url 'post-list' %}">Assistência social</a>
-                    <a href="#">Nutrição</a>
-                    <a href="#">Eventos/campanhas</a>
-                </nav>
-    
+
+                {% block nav %}
+                    <nav class="nav-bar">
+                        <a href="{% url 'inicio' %}">INÍCIO</a>
+                        <a href="{% url 'post-list' %}">ASSISTÊNCIA SOCIAL</a>
+                        <a href="#">NUTRIÇÃO</a>
+                        <a href="#">EVENTOS/CAMPANHAS</a>
+                        <a href="#" style="color: var(--roxo-primario)">VOLTAR</a>
+                    </nav>
+                {% endblock %}
+
+                {% block header-main %}
                 <div id="header-main">
                     <h1>BEE INFORMA</h1>
                 </div>
+                {% endblock %}
             </div>
         </header>
         {% endblock %}

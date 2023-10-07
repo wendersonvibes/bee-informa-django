@@ -18,7 +18,9 @@ class Postagens(models.Model):
     pos_data_registro = models.DateField(auto_now=True, verbose_name= 'Data de Registro')
 
     # chave estrangeira
-    pos_cat_codigo = models.ForeignKey(Categorias, on_delete= models.PROTECT)
+
+    #### aqui é a categoria do post..as categorias existentes são: evento e auxilio
+    pos_cat_codigo = models.ForeignKey(Categorias, on_delete= models.PROTECT, verbose_name='Categoria')
 
     def __str__(self):
         return "{} - ({}) - ({})".format(self.pos_titulo, self.pos_cat_codigo, self.pos_data_registro)

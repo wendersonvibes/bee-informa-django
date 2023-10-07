@@ -5,22 +5,20 @@
     <title>Início</title>
 {% endblock %}
 
-{% block cabecalho %}
-    <header class="cabecalho">
-        <div class="container">
-            <nav class="nav-bar">
-                <a href="#">INÍCIO</a>
-                <a href="#">CONTATOS</a>
-                <a href="#">MEMBROS</a>
-            </nav>
+{% block nav %}
+<nav class="nav-bar">
+    <a href="#">INÍCIO</a>
+    <a href="#">CONTATOS</a>
+    <a href="#">MEMBROS</a>
+</nav> 
+{% endblock %}
 
-            <div id="header-main">
-                <h1>BEE INFORMA</h1>
-                <p id="header-main-paragraph">Fique por dentro das ações estudantis como campanhas, eventos e auxílios do campus IFRN - São Paulo do Potengi</p>
-                <a href="{% url 'publico' %}" class="btn btn-danger botao">Entrar</a>
-            </div>
-        </div>
-    </header>
+{% block header-main %}
+    <div id="header-main">
+        <h1>BEE INFORMA</h1>
+        <p id="header-main-paragraph">Fique por dentro das ações estudantis como campanhas, eventos e auxílios do campus IFRN - São Paulo do Potengi</p>
+        <a href="{% url 'publico' %}" class="btn btn-danger botao">Entrar</a>
+    </div>
 {% endblock %}
 
 {% block conteudo %}

@@ -19,3 +19,5 @@ def posts_list(request):
     postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
 
     return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})
+
+
