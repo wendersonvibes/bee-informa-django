@@ -202,9 +202,13 @@ body {
     padding: 30px;
 }
 
-.content-title {
+.content-title, .content-title-admin, .content-title-admin-acoes {
     font-weight: 700;
     color: var(--roxo-primario);
+}.content-title-admin{
+    font-size: 25px;
+}.content-title-admin-acoes{
+    font-size: 15px;
 }
 
 .lista {
@@ -217,13 +221,15 @@ body {
 /* ###### FIM TELA ADMIN ###### */
 
 /* ###### TELA PÚBLICO ###### */
-.section-informacoes {
+.section-informacoes, .section-informacoes-admin {
     margin-top: 100px;
     width: 500px;
     box-shadow: 4px 4px 8px rgba(100, 100, 100, 0.6);
     border-radius: 10px;
     padding: 30px;
-}
+ }.section-informacoes-admin{
+    width: 100%;
+ }
 
 .section-informacoes h5 {
     color: var(--amarelo-primario);

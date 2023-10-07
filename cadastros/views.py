@@ -53,3 +53,9 @@ def post_delete(request, id):
     # esse html ainda não existe
     return render(request, 'post_delete.html')
 
+
+# ver a tela admin
+
+def admin_view(request):
+    return render(request, "tela_admin.html")
+

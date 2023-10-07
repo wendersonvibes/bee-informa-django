@@ -17,6 +17,9 @@ class Postagens(models.Model):
     pos_conteudo = models.TextField(max_length=200, verbose_name='Conteúdo')
     pos_data_registro = models.DateField(auto_now=True, verbose_name= 'Data de Registro')
 
+    #estudar mais sobre isso
+    # pos_link_inscricao = models.URLField(max_length=80, verbose_name='Link para Inscrição')
+
     # chave estrangeira
 
     #### aqui é a categoria do post..as categorias existentes são: evento e auxilio
