@@ -1,0 +1,17 @@
+
+<form action="{% url 'post-delete' postagem.id %}" method="POST" id="js-delete-form">
+    {% crsf_token %}
+    <div class="modal-header">
+        <h4 class="modal-title">Deletar Postagem</h4>
+        <button type="button" class="closer" data-dismiss="modal">X</button>
+    </div>
+
+    <div class="modal-body">
+        <p>Deletar a postagem <strong>{{ postagem }}?</strong></p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+    </div>
+    
+</form>

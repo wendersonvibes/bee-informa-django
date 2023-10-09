@@ -8,7 +8,7 @@
 {% block conteudo %}
     {% for post in posts %}
     
-    <section class="container">
+    <section class="container postagem">
         <div class="section-content">
             <!-- LINHA -->
             <div class="row">
@@ -33,9 +33,20 @@
                     </div>
 
                     <div class="content-group">
-                        <h3 class="group-title">Edital</h3>
+                        <h3 class="group-title">EDITAL</h3>
                         <a href="#">Link edital</a>
                     </div>
+                    
+                    <!-- opçoes admin -->
+
+                    <!-- ATIVAR ESSE IF DEPOIS -->
+                   
+                        <div class="content-group">
+                            <h3 class="group-title">OPÇÕES:</h3>
+                            <button class="btn btn-danger js-delete" data-url="{% url 'post-delete' post.id %}">Excluir</button>
+                            <button class="btn btn-warning js-editar" >Editar</button>
+                        </div>
+                   
 
                     <!-- <div class="content-group">
                         <h3 class="group-title">O que levar?</h3>
@@ -58,8 +69,24 @@
             </div>  
             <!-- FIM DA LINHA -->
         </div>  
+
     </section>
     {% endfor %}
+
+    <!-- MODAL -->
+    <div class="modal" id="modal-post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}
 
 {% block rodape %}
