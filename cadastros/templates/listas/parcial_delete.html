@@ -1,6 +1,6 @@
 
-<form action="{% url 'post-delete' postagem.id %}" method="POST" id="js-delete-form">
-    {% crsf_token %}
+<form action="{% url 'post-delete' postagem.pk %}" method="POST" id="js-delete-form">
+    {% csrf_token %}
     <div class="modal-header">
         <h4 class="modal-title">Deletar Postagem</h4>
         <button type="button" class="closer" data-dismiss="modal">X</button>

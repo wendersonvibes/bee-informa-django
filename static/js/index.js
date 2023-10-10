@@ -11,9 +11,9 @@ $(function(){
             success: function(data){ // Quando a ação de enviar é bem sucedida
                 $("#modal-post .modal-content").html(data.html_form);
             },
-            error: function(result){
-                alert("Erro")
-            }
+            // error: function(result){
+            //     alert("Erro")
+            // }
         });
     };
 
@@ -26,6 +26,7 @@ $(function(){
             dataType: 'json',
             success: function(data){
                 if(data.form_is_valid){
+                    $("#campo-postagens").html(data.html_list)
                     $("#modal-post").modal("hide");
                 }
                 else{
@@ -38,6 +39,6 @@ $(function(){
 
    
     // ########## EXCLUIR PIZZA ##########
-    $(".postagem").on("click", ".js-delete", loadForm);
+    $("#postagem").on("click", "#js-delete", loadForm);
     $("#modal-post").on("submit", "#js-delete-form", saveForm);
 });

@@ -4,10 +4,10 @@ from . import models
 
 from .forms import PostForm
 from django.shortcuts import get_object_or_404, render
-# from .models import Postagens
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 from django.http import JsonResponse
 
@@ -18,14 +18,17 @@ def save_form(request, form, template_name):
         if form.is_valid(): # Se o form for preenchido corretamente
             form.save() # Salva o formulário
             data['form_is_valid'] = True # Confirma que está validado, ou seja, True (é verdade)
+            postagens = models.Postagens.objects.all()
+            data['html_list'] = render_to_string("listas/parcial_list,html", {'postagens': postagens})
         else:
             data['form_is_valid'] = False
     
     ########## A galera abaixo será executada mesmo se o form seja válido ou não ##########
-    context = {'form': form} # Pega o form e salva dentro do dicionário "context" (Sendo válido ou não)
-    data['html_form'] = render_to_string(template_name, context, request=request) # Pega o nome do template, o dicionário que guarda o form, a request e retorna dentro do HTML em questão
+    context = {'form': form}
+    data['html_form'] = render_to_string(template_name, context, request=request)
 
-    return JsonResponse(data) # Retorna dentro do arquivo HTML os elementos do dicionário "data", que serão utilizados no javascript
+    return JsonResponse(data)
+
 
 # Criar Posts
 def post_create(request):
@@ -38,14 +41,10 @@ def post_create(request):
         form = forms.PostForm() # Gera o form vazio
     return render(request, "post_form.html", {'form': form})
 
-# Listar posts
-def posts_list(request):
-    postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
-    return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})
 
 # update post
-def post_update(request, id):
-    postagens = get_object_or_404(Postagens, id=id) #verifica se é o mesmo id
+def post_update(request, pk):
+    postagens = get_object_or_404(models.Postagens, pk=pk) #verifica se é o mesmo id
     form = PostForm(request.POST or None, request.FILES or None, instance=postagens)
     if request.method =='POST':
         if form.is_valid(): #se for valido, salva o form e retorna a mensagem e a atualização do form
@@ -54,18 +53,27 @@ def post_update(request, id):
     return render(request, "post_form.html", {"form":form})
 
 # delete post
-def post_delete(request, id):
+def post_delete(request, pk):
     data = dict()
-    postagem = get_object_or_404(models.Postagens, id=id)
+    postagem = get_object_or_404(models.Postagens, pk=pk)
 
     if request.method == "POST":
         postagem.delete()
         data['form_is_valid'] = True
+        postagens = models.Postagens.objects.all()
+        data['html_list'] = render_to_string("listas/parcial_list.html", {'posts': postagens}) # Para listar as portagens depois que deletar uma
     else:
         context = {'postagem': postagem} 
         data['html_form'] = render_to_string("listas/parcial_delete.html", context, request=request)
 
     return JsonResponse(data)
+
+
+# Listar posts
+def posts_list(request):
+    postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
+    return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})
+
 
 # ver a tela admin
 def admin_view(request):
