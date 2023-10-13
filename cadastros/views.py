@@ -19,7 +19,7 @@ def save_form(request, form, template_name):
             form.save() # Salva o formulário
             data['form_is_valid'] = True # Confirma que está validado, ou seja, True (é verdade)
             postagens = models.Postagens.objects.all()
-            data['html_list'] = render_to_string("listas/parcial_list,html", {'postagens': postagens})
+            data['html_list'] = render_to_string("listas/parcial_list,html", {'posts': postagens})
         else:
             data['form_is_valid'] = False
     
@@ -36,21 +36,22 @@ def post_create(request):
         form = forms.PostForm(request.POST) # Pega os dados enviados na requisição post
         if form.is_valid(): # Se o form for válido
             form.save() # Salva o form o banco de dados
-
+            return HttpResponseRedirect(reverse("post-list"))
     else:
         form = forms.PostForm() # Gera o form vazio
-    return render(request, "post_form.html", {'form': form})
+    return render(request, "post_create.html", {'form': form})
 
 
 # update post
 def post_update(request, pk):
-    postagens = get_object_or_404(models.Postagens, pk=pk) #verifica se é o mesmo id
-    form = PostForm(request.POST or None, request.FILES or None, instance=postagens)
+    postagem = get_object_or_404(models.Postagens, pk=pk) #verifica se é o mesmo id
+    form = PostForm(request.POST or None, request.FILES or None, instance=postagem)
     if request.method =='POST':
         if form.is_valid(): #se for valido, salva o form e retorna a mensagem e a atualização do form
             form.save()
+            return HttpResponseRedirect(reverse("post-list"))
         
-    return render(request, "post_form.html", {"form":form})
+    return render(request, "post_update.html", {"form": form})
 
 # delete post
 def post_delete(request, pk):

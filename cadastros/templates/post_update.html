@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +7,13 @@
     <title>Nova Postagem</title>
 </head>
 <body>
-    <form action="{% url 'post-create' %}" method="POST">
+    <form action="{% url 'post-update' form.instance.pk %}" method="POST">
 
         {% csrf_token %}
     
         {{ form.as_p }}
     
-        <button type="submit">Criar</button>
+        <button type="submit">Atualizar</button>
     </form>  
 </body>
 </html>

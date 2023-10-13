@@ -11,9 +11,6 @@ $(function(){
             success: function(data){ // Quando a ação de enviar é bem sucedida
                 $("#modal-post .modal-content").html(data.html_form);
             },
-            // error: function(result){
-            //     alert("Erro")
-            // }
         });
     };
 
@@ -26,7 +23,7 @@ $(function(){
             dataType: 'json',
             success: function(data){
                 if(data.form_is_valid){
-                    $("#campo-postagens").html(data.html_list)
+                    $("#campo-postagem").html(data.html_list)
                     $("#modal-post").modal("hide");
                 }
                 else{
@@ -37,8 +34,23 @@ $(function(){
         return false
     };
 
+    var mudarUrl = function(){
+        let btn = $(this);
+        $.ajax({
+            url: btn.attr("data-url"),
+            type: 'get',
+
+            success: function(){
+                window.location.replace(btn.attr("data-url"))
+            }
+        });
+    };
+
    
-    // ########## EXCLUIR PIZZA ##########
-    $("#postagem").on("click", "#js-delete", loadForm);
+    // ########## EXCLUIR POST ##########
+    $("#campo-postagem").on("click", "#js-delete", loadForm);
     $("#modal-post").on("submit", "#js-delete-form", saveForm);
+
+    // ########## EDITAR POST ##########
+    $("#campo-postagem").on("click", "#js-update", mudarUrl);
 });
