@@ -34,6 +34,7 @@
     background-color: var(--roxo-primario);
     border: none;
     padding: 6px 25px;
+    margin: 20px 6px;
     color: var(--branco-neutro);
 }
 

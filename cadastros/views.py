@@ -2,35 +2,16 @@ from django.shortcuts import render
 from . import forms
 from . import models
 
-from .forms import PostForm
+from .forms import PostForm, CardapioForm, SetorForm
 from django.shortcuts import get_object_or_404, render
-from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 
 from django.http import JsonResponse
 
-def save_form(request, form, template_name):
-    data = dict() # Dicionário vazio
+# CRIAÇÃO DE POSTS
 
-    if request.method == "POST": # Se for Post
-        if form.is_valid(): # Se o form for preenchido corretamente
-            form.save() # Salva o formulário
-            data['form_is_valid'] = True # Confirma que está validado, ou seja, True (é verdade)
-            postagens = models.Postagens.objects.all()
-            data['html_list'] = render_to_string("listas/parcial_list,html", {'posts': postagens})
-        else:
-            data['form_is_valid'] = False
-    
-    ########## A galera abaixo será executada mesmo se o form seja válido ou não ##########
-    context = {'form': form}
-    data['html_form'] = render_to_string(template_name, context, request=request)
-
-    return JsonResponse(data)
-
-
-# Criar Posts
 def post_create(request):
     if request.method == "POST":
         form = forms.PostForm(request.POST) # Pega os dados enviados na requisição post
@@ -76,7 +57,38 @@ def posts_list(request):
     return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})
 
 
-# ver a tela admin
-def admin_view(request):
-    return render(request, "tela_admin.html")
 
+
+# CRIAÇÃO DO CARDÁPIO
+
+def cardapio_create(request):   
+    if request.method == "POST":
+        form = CardapioForm(request.POST)
+        if form.is_valid():
+            form.save()  
+    else:
+        form = CardapioForm()
+    
+    return render(request, "cardapio_create.html", {'form': form})
+
+def cardapio_list(request):
+    itensCardapio = models.Cardapios.objects.all()
+    context = {'itens': itensCardapio}
+    return render(request, "cardapio_cantina.html", context)
+
+# CRIAÇÃO DE SETORES
+
+def setor_create(request):
+    if request.method == "POST":
+        form = SetorForm(request.POST)
+        if form.is_valid():
+            form.save()           
+    else:
+        form = SetorForm()
+    
+    return render(request, "setor_create.html", {'form': form})
+
+def setor_list(request):
+    setores = models.Setores.objects.all()
+    context = {'setores': setores}
+    return render(request, "setores.html", context)

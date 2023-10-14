@@ -3,3 +3,5 @@ from . import models
 
 admin.site.register(models.Postagens)
 admin.site.register(models.Categorias)
+admin.site.register(models.Cardapios)
+admin.site.register(models.Setores)

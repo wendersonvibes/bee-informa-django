@@ -2,20 +2,17 @@
     
     <section class="container" id="postagem">
         <div class="section-content">
-            <!-- LINHA -->
+            
             <div class="row">
-                <!-- COLUNA -->
+               
                 <div class="col-md-12">
                     <h1 class="content-title">{{ post.pos_titulo }}</h1>
                 </div>
-                <!-- FIM DA COLUNA -->
-
-                <!-- COLUNA -->
+           
                 <div class="col-md-8">
                     <div class="content-hero">
                         <p>{{ post.pos_conteudo }}</p>
                     </div>
-
 
                     <!-- comentei algumas coisas, pois não tem sentido ter isso se não colocamos campos para eles -->
                     <div class="content-date">
@@ -38,8 +35,7 @@
                             <button class="btn btn-danger" id="js-delete" data-url="{% url 'post-delete' post.pk %}">Excluir</button>
                             <button class="btn btn-warning" id="js-update" data-url="{% url 'post-update' post.pk %}">Editar</button>
                         </div>
-                   
-
+     
                     <!-- <div class="content-group">
                         <h3 class="group-title">O que levar?</h3>
                         <ul>
@@ -49,17 +45,13 @@
                         </ul>
                     </div> -->
                 </div>
-                <!-- FIM DA COLUNA -->
-
-                <!-- COLUNA -->
+    
                 <div class="col-md-4">
                     <div class="content-image"></div>
                 </div>
-                <!-- FIM DA COLUNA -->
-
-                
+ 
             </div>  
-            <!-- FIM DA LINHA -->
+
         </div>  
 
     </section>

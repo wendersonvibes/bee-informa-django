@@ -53,4 +53,6 @@ $(function(){
 
     // ########## EDITAR POST ##########
     $("#campo-postagem").on("click", "#js-update", mudarUrl);
+
+    $(".section-informacoes").on("click", ".botao", mudarUrl);
 });

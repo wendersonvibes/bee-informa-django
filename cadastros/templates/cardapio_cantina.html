@@ -1,0 +1,38 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Cardápio da cantina</title>
+{% endblock %}
+
+{% block conteudo %}
+    <main class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+                <tr>   
+                    {% for item in itens %}
+                    <td>{{ item.car_descricao }}</td>
+                    {% endfor %}
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <footer id="rodape">
+            <h5>OBSERVAÇÃO:</h5>
+            <span>Esse cardápio está sujeito a mudanças</span>
+        </footer>
+
+    </main>
+{% endblock %}

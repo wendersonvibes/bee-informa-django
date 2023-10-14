@@ -30,7 +30,7 @@
                             <li><a href="#">Apoio à formação estudantil (PAFE)</a></li>
                         </ul>
 
-                        <button class="btn botao">CONFIRA</button>
+                        <button class="btn botao" data-url="{% url 'post-list' %}">CONFIRA</button>
                     </div>
                 </div>
                 <!-- ----------------------------------- -->
@@ -46,13 +46,10 @@
                     <div class="section-informacoes">
                         <h5>NUTRIÇÃO</h5>
                         <h1>CONFIRA O CARDÁPIO DO DIA</h1>
-                        <button class="btn botao">CONFIRA</button>
+                        <button class="btn botao" data-url="{% url 'cardapio-list' %}">CONFIRA</button>
                     </div>
                 </div>
                 <!-- ----------------------------------- -->
-                
-            
-               
                 
                 <!-- -------------- COLUNA -------------- -->
                 <div class="col-md-6">
@@ -73,7 +70,7 @@
                     <div class="section-informacoes">
                         <h5>SETORES</h5>
                         <h1>CONFIRA OS HORÁRIOS DOS SETORES</h1>
-                        <button class="btn botao">CONFIRA</button>
+                        <button class="btn botao" data-url="{% url 'setor-list' %}">CONFIRA</button>
                     </div>
                 </div>
                 <!-- ----------------------------------- -->
@@ -83,4 +80,9 @@
 
         </div>
     </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

@@ -12,7 +12,9 @@
 <section class="container">
     
     <div class="section-informacoes-admin row">
-        <h1 class="content-title-admin">QUEM RECEBE AS NOVIDADES?</h1>
+        <!-- ESTOU ACHANDO DESNECESSÁRIO ESSA PARTE DE "QUEM RECEBE" -->
+
+        <!-- <h1 class="content-title-admin">QUEM RECEBE AS NOVIDADES?</h1>
 
         <div class="col-md-6">
             <ul class="lista"> 
@@ -21,13 +23,13 @@
                 <li><a href="#">SETORES</a></li>
                 <li><a href="#">EVENTOS E CAMPANHAS</a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="col-md-6">
             <h1 class="content-title-admin-acoes">PRINCIPAIS AÇÕES</h1>
             <ul class="lista"> 
                 <li><a href="{% url 'post-create' %}">Nova postagem</a></li>
-                <li><a href="#">Novo cardápio</a></li>
-                <li><a href="#">Adicionar setor</a></li>
+                <li><a href="{% url 'cardapio-create' %}">Novo cardápio</a></li>
+                <li><a href="{% url 'setor-create' %}">Adicionar setor</a></li>
                 <li><a href="#">Atualizar horários</a></li>
             </ul>
         </div>

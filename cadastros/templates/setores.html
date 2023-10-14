@@ -1,0 +1,67 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Cardápio da cantina</title>
+{% endblock %}
+
+{% block conteudo %}
+    <main class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Dia da semana</th>
+                    <th>Setor</th>
+                    <th>Setor</th>
+                    <th>Setor</th>
+                    <th>Setor</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Tem que melhorar como os dados aparecerão na tabela depois -->
+                <tr>  
+                    <td>Segunda-feira</td>
+                    {% for setor in setores %}
+                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
+                    {% endfor %}
+                </tr>
+
+                <tr>  
+                    <td>Terça-feira</td>
+                    {% for setor in setores %}
+                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
+                    {% endfor %}
+                </tr>
+
+                <tr>                      
+                    <td>Quarta-feira</td>
+                    {% for setor in setores %}
+                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
+                    {% endfor %}
+                </tr>
+
+                <tr>                     
+                    <td>Quinta-feira</td>
+                    {% for setor in setores %}
+                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
+                    {% endfor %}
+                </tr>
+
+                <tr>                   
+                    <td>Sexta-feira</td>
+                    {% for setor in setores %}
+                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
+                    {% endfor %}
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <footer id="rodape">
+            <h5>OBSERVAÇÃO:</h5>
+            <span>Esse cardápio está sujeito a mudanças</span>
+        </footer>
+
+    </main>
+{% endblock %}
