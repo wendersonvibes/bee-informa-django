@@ -20,7 +20,7 @@ def post_create(request):
             return HttpResponseRedirect(reverse("post-list"))
     else:
         form = forms.PostForm() # Gera o form vazio
-    return render(request, "post_create.html", {'form': form})
+    return render(request, "listas/postagem/post_create.html", {'form': form})
 
 
 # update post
@@ -32,7 +32,7 @@ def post_update(request, pk):
             form.save()
             return HttpResponseRedirect(reverse("post-list"))
         
-    return render(request, "post_update.html", {"form": form})
+    return render(request, "listas/postagem/post_update.html", {"form": form})
 
 # delete post
 def post_delete(request, pk):
@@ -43,10 +43,10 @@ def post_delete(request, pk):
         postagem.delete()
         data['form_is_valid'] = True
         postagens = models.Postagens.objects.all()
-        data['html_list'] = render_to_string("listas/parcial_list.html", {'posts': postagens}) # Para listar as portagens depois que deletar uma
+        data['html_list'] = render_to_string("listas/postagem/parcial_list.html", {'posts': postagens}) # Para listar as portagens depois que deletar uma
     else:
         context = {'postagem': postagem} 
-        data['html_form'] = render_to_string("listas/parcial_delete.html", context, request=request)
+        data['html_form'] = render_to_string("listas/postagem/parcial_delete.html", context, request=request)
 
     return JsonResponse(data)
 
@@ -54,7 +54,7 @@ def post_delete(request, pk):
 # Listar posts
 def posts_list(request):
     postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
-    return render(request, "listas/posts_assistencia_social.html", {'posts': postagens})
+    return render(request, "listas/postagem/posts_assistencia_social.html", {'posts': postagens})
 
 
 
@@ -69,12 +69,12 @@ def cardapio_create(request):
     else:
         form = CardapioForm()
     
-    return render(request, "cardapio_create.html", {'form': form})
+    return render(request, "listas/cardapio/cardapio_create.html", {'form': form})
 
 def cardapio_list(request):
     itensCardapio = models.Cardapios.objects.all()
     context = {'itens': itensCardapio}
-    return render(request, "cardapio_cantina.html", context)
+    return render(request, "listas/cardapio/cardapio_tabela.html", context)
 
 # CRIAÇÃO DE SETORES
 
@@ -86,9 +86,9 @@ def setor_create(request):
     else:
         form = SetorForm()
     
-    return render(request, "setor_create.html", {'form': form})
+    return render(request, "listas/setor/setor_create.html", {'form': form})
 
 def setor_list(request):
     setores = models.Setores.objects.all()
     context = {'setores': setores}
-    return render(request, "setores.html", context)
+    return render(request, "listas/setor/setores.html", context)

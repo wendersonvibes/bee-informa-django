@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Postagem</title>
+    <title>Editar Postagem</title>
 </head>
 <body>
-    <form action="{% url 'post-update' form.instance.pk %}" method="POST">
+    <form action="{% url 'post-update' form.instance.pk %}" method="POST" id="js-update">
 
         {% csrf_token %}
     
@@ -17,4 +17,6 @@
     </form>  
 </body>
 </html>
+
+
 
