@@ -10,14 +10,18 @@ from django.template.loader import render_to_string
 
 from django.http import JsonResponse
 
-# CRIAÇÃO DE POSTS
 
+
+# CRIAÇÃO DE POSTS
 def post_create(request):
+
     if request.method == "POST":
-        form = forms.PostForm(request.POST) # Pega os dados enviados na requisição post
+        form = forms.PostForm(request.POST, request.FILES) # Pega os dados enviados na requisição post
+
         if form.is_valid(): # Se o form for válido
             form.save() # Salva o form o banco de dados
             return HttpResponseRedirect(reverse("post-list"))
+    
     else:
         form = forms.PostForm() # Gera o form vazio
     return render(request, "listas/postagem/post_create.html", {'form': form})
@@ -57,10 +61,7 @@ def posts_list(request):
     return render(request, "listas/postagem/posts_assistencia_social.html", {'posts': postagens})
 
 
-
-
 # CRIAÇÃO DO CARDÁPIO
-
 def cardapio_create(request):   
     if request.method == "POST":
         form = CardapioForm(request.POST)
@@ -76,8 +77,10 @@ def cardapio_list(request):
     context = {'itens': itensCardapio}
     return render(request, "listas/cardapio/cardapio_tabela.html", context)
 
-# CRIAÇÃO DE SETORES
 
+
+
+# CRIAÇÃO DE SETORES
 def setor_create(request):
     if request.method == "POST":
         form = SetorForm(request.POST)

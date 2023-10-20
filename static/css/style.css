@@ -267,16 +267,20 @@ body {
 
 .content-hero p {
     font-weight: 300;
+    font-size: 18px;
 }
 
 .content-date {
     font-weight: 400;
 }
 
+.content-date h5{
+    font-size: 12px;
+}
+
 .content-image {
     width: 400px;
     height: 400px;
-    background-color: antiquewhite;
 }
 
 .content-group {

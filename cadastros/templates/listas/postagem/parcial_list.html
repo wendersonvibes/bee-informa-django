@@ -14,11 +14,8 @@
                         <p>{{ post.pos_conteudo }}</p>
                     </div>
 
-                    <!-- comentei algumas coisas, pois não tem sentido ter isso se não colocamos campos para eles -->
                     <div class="content-date">
                         <h5>Data de registro: {{ post.pos_data_registro }} </h5>
-                        <!-- <h5>Autor: </h5>
-                        <h5>Inscreva-se: </h5> -->
                     </div>
 
                     <div class="content-group">
@@ -36,18 +33,12 @@
                             <button class="btn btn-warning" id="js-update" data-url="{% url 'post-update' post.pk %}">Editar</button>
                         </div>
      
-                    <!-- <div class="content-group">
-                        <h3 class="group-title">O que levar?</h3>
-                        <ul>
-                            <li>CPF</li>
-                            <li>CPF</li>
-                            <li>CPF</li>
-                        </ul>
-                    </div> -->
                 </div>
     
                 <div class="col-md-4">
-                    <div class="content-image"></div>
+                    <div>
+                        <img src="{{ post.pos_imagem.url }}" alt="" class="content-image">
+                    </div>
                 </div>
  
             </div>  
