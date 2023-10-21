@@ -7,24 +7,12 @@
 
 {% block conteudo %}
     
-    <div id="campo-postagem">
-        {% include 'listas/postagem/parcial_list.html' %}
+    <div>
+        {% include 'listas/postagem/posts_parcial_list.html' %}
     </div>
     
-    <!-- MODAL -->
-    <div class="modal" id="modal-post">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-            </div>
-        </div>
-    </div>
 {% endblock %}
 
-{% block script %}
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
-{% endblock %}
 
 {% block rodape %}
 {% endblock %}

@@ -6,10 +6,10 @@ $(function(){
             type: 'get', // Tipo de requisição
             dataType: 'json', 
             beforeSend: function(){ // Antes de enviar o conteúdo, ou seja, enviar o formulário em questão 
-                $('#modal-post').modal("show");
+                $('#modal').modal("show");
             },
             success: function(data){ // Quando a ação de enviar é bem sucedida
-                $("#modal-post .modal-content").html(data.html_form);
+                $("#modal .modal-content").html(data.html_form);
             },
         });
     };
@@ -23,11 +23,11 @@ $(function(){
             dataType: 'json',
             success: function(data){
                 if(data.form_is_valid){
-                    $("#campo-postagem").html(data.html_list)
-                    $("#modal-post").modal("hide");
+                    // $(".campo").html(data.html_list)
+                    $("#modal").modal("hide");
                 }
                 else{
-                    $("#modal-post .modal-content").html(data.html_form);
+                    $("#modal .modal-content").html(data.html_form);
                 }
             }
         });
@@ -46,13 +46,17 @@ $(function(){
         });
     };
 
-   
+    // NAVEGAR NAS PÁGINAS PELOS BOTÕES
+    $(".section-informacoes").on("click", ".botao", mudarUrl);
+
     // ########## EXCLUIR POST ##########
-    $("#campo-postagem").on("click", "#js-delete", loadForm);
-    $("#modal-post").on("submit", "#js-delete-form", saveForm);
+    $(".campo").on("click", "#js-delete", loadForm);
+    $("#modal").on("submit", "#js-delete-form", saveForm);
 
     // ########## EDITAR POST ##########
-    $("#campo-postagem").on("click", "#js-update", mudarUrl);
+    $(".campo").on("click", "#js-update", mudarUrl);
 
-    $(".section-informacoes").on("click", ".botao", mudarUrl);
+    // ########## CARDÁPIO ##########
+    $(".campo").on("click", "#js-delete", loadForm);
+    $("#modal").on("submit", "#js-delete-form", saveForm);
 });

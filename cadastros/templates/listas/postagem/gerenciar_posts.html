@@ -1,0 +1,54 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Modelo</title>
+{% endblock %}
+
+{% block conteudo %}
+    
+    <div class="container mt-4">
+        <a href="{% url 'post-create' %}">Nova postagem</a>
+    </div>
+    <table class="table table-striped container mt-4 campo">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Data de criação</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.pos_titulo }}</td>
+                <td>{{ post.pos_data_registro }}</td>
+                <td>
+                    <button class="btn btn-danger" data-url="{% url 'post-delete' post.pk %}" id="js-delete">Excluir</button>
+                    <button class="btn btn-warning" data-url="{% url 'post-update' post.pk %}" id="js-update">Editar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block rodape %}
+    <footer id="rodape">
+    </footer>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

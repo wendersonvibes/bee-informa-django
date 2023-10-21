@@ -6,6 +6,7 @@ class PostForm(forms.ModelForm):
         model = models.Postagens
         fields = ["pos_titulo", "pos_conteudo", "pos_cat_codigo", "pos_imagem"]
 
+
 class CardapioForm(forms.ModelForm):
     class Meta:
         model = models.Cardapios

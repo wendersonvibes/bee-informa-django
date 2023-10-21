@@ -16,7 +16,7 @@ class Postagens(models.Model):
     pos_titulo = models.CharField(max_length=60, verbose_name='Título')
     pos_conteudo = models.TextField(max_length=200, verbose_name='Conteúdo')
     pos_data_registro = models.DateField(auto_now=True, verbose_name= 'Data de Registro')
-    pos_imagem = models.ImageField(upload_to='imagens/', verbose_name='Imagem')
+    pos_imagem = models.ImageField(upload_to='imagens/', verbose_name='Imagem', null=True, blank=True)
 
     #estudar mais sobre isso
     # pos_link_inscricao = models.URLField(max_length=80, verbose_name='Link para Inscrição')

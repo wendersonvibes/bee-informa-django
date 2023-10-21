@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block titulo %}
-    <title>Nova postagem</title>
+    <title>Setores</title>
 {% endblock %}
 
 {% block conteudo %}
 <div class="container mt-5">
-    <form action="{% url 'post-create' %}" enctype="multipart/form-data" method="POST">
+    <form action="{% url 'setor-create' %}" class="" method="POST">
 
         {% csrf_token %}
 

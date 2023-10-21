@@ -22,7 +22,7 @@
                 
                 <tr>   
                     {% for item in itens %}
-                    <td>{{ item.car_descricao }}</td>
+                        <td>{{ item.car_descricao }}</td>
                     {% endfor %}
                 </tr>
                 

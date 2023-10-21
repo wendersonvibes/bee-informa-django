@@ -18,14 +18,32 @@
         {% block cabecalho %}
         <header class="cabecalho">
             <div class="container">
-
+                
                 {% block nav %}
                     <nav class="nav-bar">
-                        <a href="{% url 'inicio' %}">INÍCIO</a>
-                        <a href="{% url 'post-list' %}">ASSISTÊNCIA SOCIAL</a>
-                        <a href="{% url 'cardapio-list' %}">NUTRIÇÃO</a>
-                        <a href="#">EVENTOS E CAMPANHAS</a>
-                        <a href="{% url 'publico' %}" style="color: var(--roxo-primario)">VOLTAR</a>
+                        <ul>
+                            <li class="persona-dropdown">
+                                <a href="">Acesse</a>
+
+                                <div class="persona-dropdown-menu">
+                                    <a href="{% url 'inicio' %}">INÍCIO</a>
+                                    <a href="{% url 'post-list' %}">ASSISTÊNCIA SOCIAL</a>
+                                    <a href="{% url 'cardapio-list' %}">NUTRIÇÃO</a>
+                                    <a href="#">EVENTOS E CAMPANHAS</a>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <a href="{% url 'tela-admin' %}">Tela admin</a>
+                            </li>
+
+                            <li>    
+                                <a href="{% url 'publico' %}" style="color: var(--roxo-primario)">VOLTAR</a>
+                            </li>
+                        </ul>
+                        
+                        
+                        
                     </nav>
                 {% endblock %}
 

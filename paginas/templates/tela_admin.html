@@ -12,18 +12,7 @@
 <section class="container">
     
     <div class="section-informacoes-admin row">
-        <!-- ESTOU ACHANDO DESNECESSÁRIO ESSA PARTE DE "QUEM RECEBE" -->
 
-        <!-- <h1 class="content-title-admin">QUEM RECEBE AS NOVIDADES?</h1>
-
-        <div class="col-md-6">
-            <ul class="lista"> 
-                <li><a href="#">NUTRIÇÃO</a></li>
-                <li><a href="#">ASSISTÊNCIA SOCIAL</a></li>
-                <li><a href="#">SETORES</a></li>
-                <li><a href="#">EVENTOS E CAMPANHAS</a></li>
-            </ul>
-        </div> -->
         <div class="col-md-6">
             <h1 class="content-title-admin-acoes">PRINCIPAIS AÇÕES</h1>
             <ul class="lista"> 
@@ -34,6 +23,18 @@
             </ul>
         </div>
     </div>
+
+    <div class="section-informacoes-admin row">
+        <div class="col-md-6">
+            <h1 class="content-title-admin-acoes">Gerenciamento das postagens</h1>
+            <ul class="lista"> 
+                <li><a href="{% url 'gerenciar-posts' %}">Gerenciar postagens</a></li>
+                <li><a href="{% url 'setores-crud' %}">Gerenciar setores</a></li>
+                <li><a href="{% url 'gerenciar-cardapio' %}">Gerenciar cardápio</a></li>
+            </ul>
+        </div>
+    </div>
+    
     <!-- FIM DA LINHA -->
 </section>
 {% endblock %}
