@@ -23,7 +23,7 @@ $(function(){
             dataType: 'json',
             success: function(data){
                 if(data.form_is_valid){
-                    // $(".campo").html(data.html_list)
+                    $(".campo").html(data.html_list)
                     $("#modal").modal("hide");
                 }
                 else{
@@ -49,14 +49,11 @@ $(function(){
     // NAVEGAR NAS PÁGINAS PELOS BOTÕES
     $(".section-informacoes").on("click", ".botao", mudarUrl);
 
-    // ########## EXCLUIR POST ##########
+    // ########## EXCLUIR ##########
     $(".campo").on("click", "#js-delete", loadForm);
     $("#modal").on("submit", "#js-delete-form", saveForm);
 
-    // ########## EDITAR POST ##########
+    // ########## EDITAR ##########
     $(".campo").on("click", "#js-update", mudarUrl);
 
-    // ########## CARDÁPIO ##########
-    $(".campo").on("click", "#js-delete", loadForm);
-    $("#modal").on("submit", "#js-delete-form", saveForm);
 });

@@ -1,0 +1,33 @@
+{% for setor in setores %}
+    {% if setor.set_dia_semana == "SEG" %}
+        <td>
+            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+            <button class="btn btn-danger" data-url="{% url 'setor-delete' setor.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'setor-update' setor.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif setor.set_dia_semana == "TER" %}
+        <td>
+            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+            <button class="btn btn-danger" data-url="{% url 'setor-delete' setor.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'setor-update' setor.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif setor.set_dia_semana == "QUA" %}
+        <td>
+            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+            <button class="btn btn-danger" data-url="{% url 'setor-delete' setor.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'setor-update' setor.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif setor.set_dia_semana == "QUI" %}
+        <td>
+            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+            <button class="btn btn-danger" data-url="{% url 'setor-delete' setor.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'setor-update' setor.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif setor.set_dia_semana == "SEX" %}
+        <td>
+            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+            <button class="btn btn-danger" data-url="{% url 'setor-delete' setor.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'setor-update' setor.pk %}" id="js-update">Editar</button>
+        </td>
+    {% endif %}
+{% endfor %}

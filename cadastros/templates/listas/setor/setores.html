@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Cardápio da cantina</title>
+    <title>Horários dos setores</title>
 {% endblock %}
 
 {% block conteudo %}
@@ -10,58 +10,39 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Dia da semana</th>
-                    <th>Setor</th>
-                    <th>Setor</th>
-                    <th>Setor</th>
-                    <th>Setor</th>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
                 </tr>
             </thead>
 
             <tbody>
-                <!-- Tem que melhorar como os dados aparecerão na tabela depois -->
-                <tr>  
-                    <td>Segunda-feira</td>
-                    {% for setor in setores %}
-                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
-                    {% endfor %}
-                </tr>
-
-                <tr>  
-                    <td>Terça-feira</td>
-                    {% for setor in setores %}
-                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
-                    {% endfor %}
-                </tr>
-
-                <tr>                      
-                    <td>Quarta-feira</td>
-                    {% for setor in setores %}
-                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
-                    {% endfor %}
-                </tr>
-
-                <tr>                     
-                    <td>Quinta-feira</td>
-                    {% for setor in setores %}
-                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
-                    {% endfor %}
-                </tr>
-
-                <tr>                   
-                    <td>Sexta-feira</td>
-                    {% for setor in setores %}
-                    <td>{{ setor.set_nome}} - {{ setor.set_numero_sala }}</td>
-                    {% endfor %}
-                </tr>
-                
+                {% for setor in setores %}
+                    {% if setor.set_dia_semana == "SEG" %}
+                        <td>
+                            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+                        </td>
+                    {% elif setor.set_dia_semana == "TER" %}
+                        <td>
+                            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+                        </td>
+                    {% elif setor.set_dia_semana == "QUA" %}
+                        <td>
+                            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+                        </td>
+                    {% elif setor.set_dia_semana == "QUI" %}
+                        <td>
+                            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+                        </td>
+                    {% elif setor.set_dia_semana == "SEX" %}
+                        <td>
+                            {{ setor.set_nome}} - {{ setor.set_numero_sala }}
+                        </td>
+                    {% endif %}
+                {% endfor %}
             </tbody>
         </table>
-
-        <footer id="rodape">
-            <h5>OBSERVAÇÃO:</h5>
-            <span>Esse cardápio está sujeito a mudanças</span>
-        </footer>
-
     </main>
 {% endblock %}

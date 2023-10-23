@@ -1,41 +1,10 @@
 {% for post in posts %}
-    
-    <section class="container" id="postagem">
-        <div class="section-content">
-            
-            <div class="row">
-               
-                <div class="col-md-12">
-                    <h1 class="content-title">{{ post.pos_titulo }}</h1>
-                </div>
-           
-                <div class="col-md-8">
-                    <div class="content-hero">
-                        <p>{{ post.pos_conteudo }}</p>
-                    </div>
-
-                    <div class="content-date">
-                        <h5>Data de registro: {{ post.pos_data_registro }} </h5>
-                    </div>
-
-                    <div class="content-group">
-                        <h3 class="group-title">EDITAL</h3>
-                        <a href="#">Link edital</a>
-                    </div>
-                    
-                </div>
-    
-                <div class="col-md-4">
-                
-                    {% if post.pos_imagem %}
-                        <img src="{{ post.pos_imagem.url }}" alt="" class="content-image">
-                    {% endif %}
-                    
-                </div>
- 
-            </div>  
-
-        </div>  
-
-    </section>
+    <tr>
+        <td>{{ post.pos_titulo }}</td>
+        <td>{{ post.pos_data_registro }}</td>
+        <td>
+            <button class="btn btn-danger" data-url="{% url 'post-delete' post.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-warning" data-url="{% url 'post-update' post.pk %}" id="js-update">Editar</button>
+        </td>
+    </tr>
 {% endfor %}

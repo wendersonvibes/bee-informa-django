@@ -8,7 +8,7 @@
 {% block conteudo %}
     
     <div class="container mt-4">
-        <a href="{% url 'cardapio-create' %}">Criar cardápio</a>
+        <a href="{% url 'cardapio-create' %}">Adicionar item ao cardápio</a>
     </div>
 
 
@@ -26,19 +26,14 @@
         <tbody>
             
             <tr>   
-                {% for item in itens %}
-                    <td>
-                        {{ item.car_descricao }}
-                        <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
-                    </td>
-                {% endfor %}
+                {% include 'listas/cardapio/cardapio_parcial_list.html' %}
             </tr>
             
         </tbody>
     </table>
 
     <!-- MODAL -->
-    <div class="modal">
+    <div class="modal" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
 

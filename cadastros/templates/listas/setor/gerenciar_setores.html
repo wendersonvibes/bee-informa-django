@@ -2,25 +2,33 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Modelo</title>
+    <title>Gerenciar setores</title>
 {% endblock %}
 
 {% block conteudo %}
     
     <div class="container mt-4">
-        <a href="{% url 'post-create' %}">Nova postagem</a>
+        <a href="{% url 'setor-create' %}">Adicionar setor</a>
     </div>
+
+
     <table class="table table-striped container mt-4 campo">
         <thead>
             <tr>
-                <th>Título</th>
-                <th>Data de criação</th>
-                <th>Opções</th>
+                <th>Segunda-feira</th>
+                <th>Terça-feira</th>
+                <th>Quarta-feira</th>
+                <th>Quinta-feira</th>
+                <th>Sexta-feira</th>
             </tr>
         </thead>
 
         <tbody>
-            {% include 'listas/postagem/posts_parcial_list.html' %}
+            
+            <tr>   
+                {% include 'listas/setor/setores_parcial_list.html' %}
+            </tr>
+            
         </tbody>
     </table>
 
@@ -32,6 +40,7 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
 
 {% block rodape %}

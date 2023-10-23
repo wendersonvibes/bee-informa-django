@@ -1,0 +1,33 @@
+{% for item in itens %}
+    {% if item.car_dia_semana == "SEG" %}
+        <td>
+            {{ item.car_descricao }}
+            <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'cardapio-update' item.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif item.car_dia_semana == "TER" %}
+        <td>
+            {{ item.car_descricao }}
+            <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'cardapio-update' item.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif item.car_dia_semana == "QUA" %}
+        <td>
+            {{ item.car_descricao }}
+            <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'cardapio-update' item.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif item.car_dia_semana == "QUI" %}
+        <td>
+            {{ item.car_descricao }}
+            <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'cardapio-update' item.pk %}" id="js-update">Editar</button>
+        </td>
+    {% elif item.car_dia_semana == "SEX" %}
+        <td>
+            {{ item.car_descricao }}
+            <button class="btn btn-danger" data-url="{% url 'cardapio-delete' item.pk %}" id="js-delete">Excluir</button>
+            <button class="btn btn-danger" data-url="{% url 'cardapio-update' item.pk %}" id="js-update">Editar</button>
+        </td>
+    {% endif %}
+{% endfor %}

@@ -18,7 +18,7 @@ def post_create(request):
         if form.is_valid(): # Se o form for válido
             form = form.save(commit=False)
             form.save() # Salva o form o banco de dados
-            return HttpResponseRedirect(reverse("post-list"))
+            return HttpResponseRedirect(reverse("gerenciar-posts"))
     else:
         form = forms.PostForm() # Gera o form vazio
     return render(request, "listas/postagem/post_create.html", {'form': form})
@@ -29,7 +29,7 @@ def post_update(request, pk):
     if request.method =='POST':
         if form.is_valid(): #se for valido, salva o form e retorna a mensagem e a atualização do form
             form.save()
-            return HttpResponseRedirect(reverse("post-list"))   
+            return HttpResponseRedirect(reverse("gerenciar-posts"))   
     return render(request, "listas/postagem/post_update.html", {"form": form})
 
 def post_delete(request, pk):
@@ -53,10 +53,23 @@ def posts_list(request):
     postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
     return render(request, "listas/postagem/posts_assistencia_social.html", {'posts': postagens})
 
-def gerenciar_posts(request):
+# Para o admin
+def admin_gerenciar_posts(request):
     postagens = models.Postagens.objects.all() # Pega todos os objetos da classe Postagens
     return render(request, "listas/postagem/gerenciar_posts.html", {'posts': postagens})
+
 ####################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
 
 
 # CRIAÇÃO DO CARDÁPIO
@@ -74,6 +87,16 @@ def cardapio_list(request):
     context = {'itens': itensCardapio}
     return render(request, "listas/cardapio/cardapio.html", context)
 
+def cardapio_update(request, pk):
+    itemCardapio = get_object_or_404(models.Cardapios, pk=pk) #verifica se é o mesmo id
+    form = CardapioForm(request.POST or None, instance=itemCardapio)
+    if request.method =='POST':
+        if form.is_valid(): #se for valido, salva o form e retorna a mensagem e a atualização do form
+            form.save()
+            return HttpResponseRedirect(reverse("gerenciar-cardapio"))   
+    return render(request, "listas/cardapio/cardapio_update.html", {"form": form})
+
+
 def cardapio_delete(request, pk):
     data = dict()
     itemCardapio = get_object_or_404(models.Cardapios, pk=pk)
@@ -82,14 +105,14 @@ def cardapio_delete(request, pk):
         itemCardapio.delete()
         data['form_is_valid'] = True
         itensCardapio = models.Cardapios.objects.all()
-        data['html_list'] = render_to_string("listas/cardapio/cardapio.html", {'itens': itensCardapio})
+        data['html_list'] = render_to_string("listas/cardapio/cardapio_parcial_list.html", {'itens': itensCardapio})
     else:
         context = {'item': itemCardapio} 
         data['html_form'] = render_to_string("listas/cardapio/cardapio_parcial_delete.html", context, request=request)
 
     return JsonResponse(data)
 
-def gerenciar_cardapio(request):
+def admin_gerenciar_cardapio(request):
     itensCardapio = models.Cardapios.objects.all()
     context = {'itens': itensCardapio}
     return render(request, "listas/cardapio/gerenciar_cardapio.html", context)
@@ -102,7 +125,8 @@ def setor_create(request):
     if request.method == "POST":
         form = SetorForm(request.POST)
         if form.is_valid():
-            form.save()           
+            form.save()
+            return HttpResponseRedirect(reverse("gerenciar-setores"))              
     else:
         form = SetorForm()
     
@@ -112,4 +136,34 @@ def setor_list(request):
     setores = models.Setores.objects.all()
     context = {'setores': setores}
     return render(request, "listas/setor/setores.html", context)
+
+def setor_update(request, pk):
+    setor = get_object_or_404(models.Setores, pk=pk) #verifica se é o mesmo id
+    form = SetorForm(request.POST or None, instance=setor)
+    if request.method =='POST':
+        if form.is_valid(): #se for valido, salva o form e retorna a mensagem e a atualização do form
+            form.save()
+            return HttpResponseRedirect(reverse("gerenciar-setores"))   
+    return render(request, "listas/setor/setor_update.html", {"form": form})
+
+
+def setor_delete(request, pk):
+    data = dict()
+    setor = get_object_or_404(models.Setores, pk=pk)
+
+    if request.method == "POST":
+        setor.delete()
+        data['form_is_valid'] = True
+        setores = models.Setores.objects.all()
+        data['html_list'] = render_to_string("listas/setor/setores_parcial_list.html", {'setores': setores})
+    else:
+        context = {'setor': setor} 
+        data['html_form'] = render_to_string("listas/setor/setor_parcial_delete.html", context, request=request)
+
+    return JsonResponse(data)
+
+def admin_gerenciar_setores(request):
+    setores = models.Setores.objects.all()
+    context = {'setores': setores}
+    return render(request, "listas/setor/gerenciar_setores.html", context)
 ####################################################################################################################

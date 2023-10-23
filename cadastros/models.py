@@ -30,15 +30,34 @@ class Postagens(models.Model):
         return "{} - ({}) - ({})".format(self.pos_titulo, self.pos_cat_codigo, self.pos_data_registro)
 
 class Setores(models.Model):
+
+    DIAS_DA_SEMANA_CHOICES = (
+        ("SEG", "Segunda-feira"),
+        ("TER", "Terça-feira"),
+        ("QUA", "Quarta-feira"),
+        ("QUI", "Quinta-feira"),
+        ("SEX", "Sexta-feira")
+    )
+
     set_nome = models.CharField(max_length=40)
     set_representante = models.CharField(max_length=60)
     set_numero_sala = models.IntegerField()
+    set_dia_semana = models.CharField(max_length=3, choices=DIAS_DA_SEMANA_CHOICES, default="SEG", verbose_name='Dia da Semana')
 
     def __str__(self):
         return "{} - ({})".format(self.set_nome, self.set_representante)
 
 class Cardapios(models.Model):
-    car_dia_semana = models.CharField(max_length=40, verbose_name='Dia da Semana')
+
+    DIAS_DA_SEMANA_CHOICES = (
+        ("SEG", "Segunda-feira"),
+        ("TER", "Terça-feira"),
+        ("QUA", "Quarta-feira"),
+        ("QUI", "Quinta-feira"),
+        ("SEX", "Sexta-feira")
+    )
+
+    car_dia_semana = models.CharField(max_length=3, choices=DIAS_DA_SEMANA_CHOICES, default="SEG", verbose_name='Dia da Semana')
     car_descricao = models.TextField(max_length=100, verbose_name='Descrição')
     car_data_registro = models.DateField(auto_now=True, verbose_name= 'Data de Registro')
 
